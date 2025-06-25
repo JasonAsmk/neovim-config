@@ -1,9 +1,15 @@
 {
   "extras": [
-
+    "lazyvim.plugins.extras.lang.angular",
+    "lazyvim.plugins.extras.lang.git",
+    "lazyvim.plugins.extras.lang.haskell",
+    "lazyvim.plugins.extras.lang.nix",
+    "lazyvim.plugins.extras.lang.typescript",
+    "lazyvim.plugins.extras.lsp.none-ls"
   ],
+  "install_version": 7,
   "news": {
-    "NEWS.md": "7429"
+    "NEWS.md": "10960"
   },
-  "version": 7
+  "version": 8
 }
