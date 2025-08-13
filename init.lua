@@ -711,6 +711,12 @@ require('lazy').setup({
         },
         hls = {
           filetypes = { 'haskell', 'lhaskell', 'cabal' }
+        },
+        ts_ls = {
+          filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+        },
+        nil_ls = {
+          filetypes = { "nix" }
         }
       }
 
