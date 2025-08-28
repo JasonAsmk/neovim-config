@@ -717,6 +717,9 @@ require('lazy').setup({
         },
         nil_ls = {
           filetypes = { "nix" }
+        },
+        gleam = {
+          filetypes = { "gleam" }
         }
       }
 
