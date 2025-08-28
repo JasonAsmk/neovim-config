@@ -58,7 +58,7 @@ return {
       end,
       desc = "Explorer NeoTree (cwd)",
     },
-    { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
+    { "<leader>te", "<leader>fe", desc = "Toggle NeoTree", remap = true },
     {
       "<leader>ge",
       function()
