@@ -720,7 +720,7 @@ require("lazy").setup({
 				gleam = {
 					filetypes = { "gleam" },
 				},
-				-- angularls = {}
+				angularls = {},
 			}
 
 			local ts_ls = { ts_ls = require("custom.lsp.ts_ls") }
@@ -783,7 +783,7 @@ require("lazy").setup({
 		cmd = { "ConformInfo" },
 		keys = {
 			{
-				"<leader>f",
+				"<leader>ff",
 				function()
 					require("conform").format({ async = true, lsp_format = "fallback" })
 				end,
@@ -836,6 +836,7 @@ require("lazy").setup({
 						return { "prettier" }
 					end
 				end,
+				htmlangular = { "prettier" },
 			},
 			formatters = {
 				prettier = {
@@ -915,8 +916,16 @@ require("lazy").setup({
 
 				-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
 				--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
+				--
+				-- SIDEKICK
+				["<Tab>"] = {
+					"snippet_forward",
+					function() -- sidekick next edit suggestion
+						return require("sidekick").nes_jump_or_apply()
+					end,
+					"fallback",
+				},
 			},
-
 			appearance = {
 				-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 				-- Adjusts spacing to ensure icons are aligned
@@ -978,7 +987,7 @@ require("lazy").setup({
 		priority = 1000,
 		config = function()
 			require("nightfox").setup()
-			vim.cmd.colorscheme("dawnfox")
+			vim.cmd.colorscheme("carbonfox")
 		end,
 	},
 
