@@ -1,12 +1,12 @@
 return {
 	"sindrets/diffview.nvim",
-	keymaps = {
-		{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Git Diffview" },
+	keys = {
+		{ "<leader>gdo", "<cmd>DiffviewOpen<cr>", desc = "Git Diffview Open" },
 		{ "<leader>gD", "<cmd>DiffviewFileHistory %<cr>", desc = "Git File History" },
 		{ "<leader>gh", "<cmd>DiffviewFileHistory<cr>", desc = "Git History" },
-		{ "<leader>gc", "<cmd>DiffviewClose<cr>", desc = "Git Diffview Close" },
+		{ "<leader>gdc", "<cmd>DiffviewClose<cr>", desc = "Git Diffview Close" },
 	},
-	options = function()
+	opts = function()
 		local actions = require("diffview.actions")
 		return {
 			diff_binaries = false, -- Show diffs for binaries
