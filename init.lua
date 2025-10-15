@@ -721,6 +721,23 @@ require("lazy").setup({
 					filetypes = { "gleam" },
 				},
 				angularls = {},
+				ccls = {},
+				-- clangd = {
+				-- 	cmd = {
+				-- 		"clangd",
+				-- 		"--background-index",
+				-- 		"--clang-tidy",
+				-- 		"--header-insertion=iwyu",
+				-- 		"--completion-style=detailed",
+				-- 		"--function-arg-placeholders",
+				-- 		"--fallback-style=llvm",
+				-- 	},
+				-- 	init_options = {
+				-- 		usePlaceholders = true,
+				-- 		completeUnimported = true,
+				-- 		clangdFileStatus = true,
+				-- 	},
+				-- },
 			}
 
 			local ts_ls = { ts_ls = require("custom.lsp.ts_ls") }
@@ -987,7 +1004,8 @@ require("lazy").setup({
 		priority = 1000,
 		config = function()
 			require("nightfox").setup()
-			vim.cmd.colorscheme("carbonfox")
+			-- vim.cmd.colorscheme("carbonfox")
+			vim.cmd.colorscheme("dayfox")
 		end,
 	},
 
