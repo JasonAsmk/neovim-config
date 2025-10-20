@@ -1003,6 +1003,9 @@ require("lazy").setup({
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
 
+			-- retain layout when closing a buffer
+			require("mini.bufremove").setup()
+
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
@@ -1079,11 +1082,10 @@ require("lazy").setup({
 
 	-- colorschemes
 	{ import = "custom.colorscheme" },
-		(		-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-		--    This is the easiest way to modularize your config.
-		--
-		--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-{ import = "custom.plugins" }),
+	--    This is the easiest way to modularize your config.
+	--
+	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+	{ import = "custom.plugins" },
 	--
 	-- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
 	-- Or use telescope!
