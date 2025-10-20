@@ -738,6 +738,7 @@ require("lazy").setup({
 				-- 		clangdFileStatus = true,
 				-- 	},
 				-- },
+				cssls = {}, --   npm i -g vscode-langservers-extracted
 			}
 
 			local ts_ls = { ts_ls = require("custom.lsp.ts_ls") }
