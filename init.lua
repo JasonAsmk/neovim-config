@@ -91,7 +91,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -1007,12 +1007,38 @@ require("lazy").setup({
 			-- retain layout when closing a buffer
 			require("mini.bufremove").setup()
 
+			require("mini.icons").setup()
+
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
 			local statusline = require("mini.statusline")
 			-- set use_icons to true if you have a Nerd Font
-			statusline.setup({ use_icons = vim.g.have_nerd_font })
+			statusline.setup({
+				use_icons = vim.g.have_nerd_font,
+				content = {
+					active = function()
+						local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+						local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+						local lsp = MiniStatusline.section_lsp({ trunc_width = 75 })
+						local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+						local location = MiniStatusline.section_location({ trunc_width = 75 })
+						local search = MiniStatusline.section_searchcount({ trunc_width = 75 })
+
+						-- Usage of `MiniStatusline.combine_groups()` ensures highlighting and
+						-- correct padding with spaces between groups (accounts for 'missing'
+						-- sections, etc.)
+						return MiniStatusline.combine_groups({
+							{ hl = mode_hl, strings = { mode } },
+							{ hl = "MiniStatuslineFilename", strings = { filename } },
+							"%<", -- Mark general truncate point
+							{ hl = "MiniStatuslineDevinfo", strings = { diagnostics, lsp } },
+							"%=", -- End left alignment
+							{ hl = mode_hl, strings = { search, location } },
+						})
+					end,
+				},
+			})
 
 			-- You can configure sections in the statusline by overriding their
 			-- default behavior. For example, here we set the section for
