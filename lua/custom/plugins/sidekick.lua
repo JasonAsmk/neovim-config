@@ -8,6 +8,10 @@ return {
 				enabled = true,
 			},
 		},
+		nes = {
+			-- start with next edit suggestion disabled
+			enabled = false,
+		},
 	},
 	keys = {
 		{
@@ -20,6 +24,12 @@ return {
 			end,
 			expr = true,
 			desc = "Goto/Apply Next Edit Suggestion",
+		},
+		{
+			"<leader>an",
+			function()
+				require("sidekick.nes").toggle()
+			end,
 		},
 		{
 			"<c-.>",
