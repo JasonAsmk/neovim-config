@@ -716,6 +716,18 @@ require("lazy").setup({
 						},
 					},
 				},
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              cargo = {
+                allFeatures = true,
+              },
+              checkOnSave = {
+                command = "clippy",
+              },
+            },
+          },
+        },
 				hls = {
 					filetypes = { "haskell", "lhaskell", "cabal" },
 				},
